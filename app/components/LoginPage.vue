@@ -4,8 +4,8 @@
       <Label text="Log In"></Label>
     </ActionBar>
     <StackLayout class="form">
-      <!-- <Image class="logo" src="res://ethos_oc_upscaled"></Image> -->
-      <Label class="header" text="Ethos"></Label>
+      <Image class="logo" src="res://ethos_oc_upscaled"></Image>
+      
 
       <StackLayout class="input-field">
         <TextField
@@ -45,11 +45,13 @@
   margin-left: 30;
   margin-right: 30;
   flex-grow: 2;
-  vertical-align: middle;
+  /* vertical-align: middle; */
 }
 
 .logo {
-  margin-bottom: 12;
+  /* margin-bottom: 12; */
+  margin-bottom: 50;
+  margin-top: 80;
   height: 90;
   font-weight: bold;
 }
