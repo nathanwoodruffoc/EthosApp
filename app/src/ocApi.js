@@ -17,7 +17,7 @@ const DEBUG_fakeEvents = [
         "event_location": "Baugh Auditorium",
         "event_private": false,
         "event_contact_id": "1001342",
-        "event_contact_show_phone": false,
+        "event_contact_show_phone": true,
         "event_contact_show_email": true,
         "contact_email": "brian.simmons@oc.edu",
         "contact_phone": "405-425-5525",
@@ -192,8 +192,8 @@ export async function getEvents(user) {
                 event_location: e.Room,
                 event_private: e.PrivateEvent,
                 event_contact_id: e.ContactUserID,
-                event_contact_show_phone: false,
-                event_contact_show_email: true,
+                event_contact_show_email: (e.ContactEmail != null && e.ContactEmail != "" && e.ContactEmail != "n/a"),
+                event_contact_show_phone: (e.ContactPhone != null && e.ContactPhone != "" && e.ContactPhone != "n/a"),
                 contact_email: e.ContactEmail,
                 contact_phone: e.ContactPhone
             })
