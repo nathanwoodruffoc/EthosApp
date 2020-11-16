@@ -30,10 +30,12 @@
 }
 .event-time-location {
     font-size: 18em;
+    text-wrap: true;
 }
 .event-name {
     font-size: 24em;
     font-weight: bold;
+    text-wrap: true;
 }
 .event-separator {
     padding-top: 24;
