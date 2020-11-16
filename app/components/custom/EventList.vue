@@ -8,7 +8,7 @@
             </StackLayout>
             <StackLayout dock="right" verticalAlignment="center">
                 <Label :text="item.event_name" class="event-name" />
-                <Label :text="item.timeAndPlace" class="event-time-location" />
+                <Label :text="item.timeAndLocation" class="event-time-location" />
             </StackLayout>
         </DockLayout>
     </v-template>
@@ -106,7 +106,7 @@ computed: {
 
             e.day = e.event_start.getDate();
             e.weekday = this.getWeekday(e.event_start);
-            e.timeAndPlace = this.getTimeAndPlace(e);
+            e.timeAndLocation = this.getTimeAndLocation(e);
             e.isSeparator = false;
 
             listItems.push(e);
@@ -143,7 +143,7 @@ methods: {
                 date.getMinutes() +                    // minutes
                 (date.getHours() > 12 ? "PM" : "AM");
     },
-    getTimeAndPlace(event) {
+    getTimeAndLocation(event) {
         let date = event.event_start;  
         return this.getTime(date) + ", " + event.event_location;
     }
