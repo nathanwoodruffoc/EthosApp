@@ -4,9 +4,8 @@
       <Label text="Log In"></Label>
     </ActionBar>
     <StackLayout class="form">
-      <Image class="logo" src="res://ethos_oc_upscaled"></Image>
+      <Image class="logo" src="res://ethos_oc_upscaled" />
       
-
       <StackLayout class="input-field">
         <TextField
           class="input"
