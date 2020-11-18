@@ -5,12 +5,6 @@
     </ActionBar>
 
     <StackLayout>
-        <!-- <Label class="info">
-            <FormattedString>
-                <Span class="fas" text.decode="&#xf135; "/>
-                <Span :text="message"/>
-            </FormattedString>
-        </Label> -->
         <Image src="res://ethos_oc_upscaled" horizontalAlignment="center" width="50%" marginTop="25"/>
         <AbsoluteLayout width="245" height="245" horizontalAlignment="center" margin="25">
             <AnimatedCircle class="progressBar"
@@ -29,17 +23,39 @@
             </StackLayout>
         </AbsoluteLayout>
         
-        <Button text="Check In [-]" class="btn btn-primary btn-rounded-lg" @tap="checkIn"></Button>
-        <Button text="Find Events" class="btn btn-primary btn-rounded-lg" @tap="findEvents"></Button>
-        <Button text="My Checkins" class="btn btn-primary btn-rounded-lg" @tap="checkins"></Button>
-        
+        <Button class="btn btn-primary btn-rounded-lg button-text" @tap="checkIn" marginTop="10em">
+            <FormattedString>
+                <Span class="fas button-text" text.decode="&#xf029; "/>
+                <Span class="button-text" text="Check In" />
+            </FormattedString>
+        </Button>
+        <Button class="btn btn-primary btn-rounded-lg button-text" @tap="findEvents">
+            <FormattedString>
+                <Span class="button-text" text="Find Events" />
+            </FormattedString>
+        </Button>
+        <Button class="btn btn-primary btn-rounded-lg button-text" @tap="checkins">
+            <FormattedString>
+                <Span class="button-text" text="My Checkins" />
+            </FormattedString>
+        </Button>
     </StackLayout>
 </Page>
 </template>
 
 <style scoped>
-@import "../custom";
-
+Button {
+    margin-left: 40em;
+    margin-right: 40em;
+    margin-top: 0em;
+    margin-bottom: 30em;
+    height: 70em;
+}
+.button-text {
+    font-size: 22em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
 .progressBar {
     background-color: transparent;
     width: 245;

@@ -7,8 +7,8 @@
                 <Label :text="item.day" class="event-day" />
             </StackLayout>
             <StackLayout dock="right" verticalAlignment="center">
-                <Label :text="item.event.event_name" class="event-name" />
-                <Label :text="item.timeAndPlace" class="event-time-location" />
+                <Label :text="item.event_name" class="event-name" />
+                <Label :text="item.timeAndLocation" class="event-time-location" />
             </StackLayout>
         </DockLayout>
     </v-template>
@@ -22,29 +22,26 @@
 .event-weekday {
     font-size: 16em;
     text-align: center;
-    padding: 0;
 }
 .event-day {
     font-size: 22em;
     text-align: center;
     font-weight: bold;
-    padding: 0;
 }
 .event-time-location {
     font-size: 18em;
-    padding: 0;
+    text-wrap: true;
 }
 .event-name {
     font-size: 24em;
     font-weight: bold;
-    padding: 0;
+    text-wrap: true;
 }
 .event-separator {
     padding-top: 24;
     padding-left: 20;
     font-weight: bold;
     color:  #811429;
-    /* text-align: center; */
 }
 StackLayout {
     padding: 0;
@@ -109,14 +106,12 @@ computed: {
                 lastMonth = m;
             }
 
-            
-            listItems.push({
-                day: e.event_start.getDate(),
-                weekday: this.getWeekday(e.event_start),
-                timeAndPlace: this.getTimeAndPlace(e),
-                event: e,
-                isSeparator: false
-            });
+            e.day = e.event_start.getDate();
+            e.weekday = this.getWeekday(e.event_start);
+            e.timeAndLocation = this.getTimeAndLocation(e);
+            e.isSeparator = false;
+
+            listItems.push(e);
         })
         return listItems;
     }
@@ -136,7 +131,7 @@ methods: {
         //console.log("User tapped event: ", e.item);
         this.$navigateTo(EventDetails, {
             props: {
-                event: e.item.event
+                event: e.item
             }
         })
     },
@@ -150,7 +145,7 @@ methods: {
                 date.getMinutes() +                    // minutes
                 (date.getHours() > 12 ? "PM" : "AM");
     },
-    getTimeAndPlace(event) {
+    getTimeAndLocation(event) {
         let date = event.event_start;  
         return this.getTime(date) + ", " + event.event_location;
     }

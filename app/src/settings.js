@@ -2,7 +2,8 @@ const FS = require("tns-core-modules/file-system");
 
 const filename = "settings.json"
 const defaultSettings = {
-    username: "nathan.woodruff",
+    // username: "nathan.woodruff",
+    username: "",
     token_oc: "",
     token_custom: "",
     useCustomApi: false,
