@@ -1,11 +1,9 @@
-const apiURL = "https://ethos.oc.edu/api";
-const picURL = "https://account.oc.edu/picture/";
+const DEBUG_fakeKudos = false;
+const DEBUG_injectEvents = false;
 
-const DEBUG_modifyKudos = true;
 const DEBUG_fakeKudosProgress = 16;
 const DEBUG_fakeKudosRequired = 20;
 
-const DEBUG_injectEvents = true;
 const DEBUG_fakeEvents = [
     {
         "event_id": 111111,
@@ -25,8 +23,10 @@ const DEBUG_fakeEvents = [
         "contact_email": "brian.simmons@oc.edu",
         "contact_phone": "405-425-5525",
     },
-
 ]
+
+const apiURL = "https://ethos.oc.edu/api";
+const picURL = "https://account.oc.edu/picture/";
 
 function DEBUG_genEventStart() {
     let date = new Date();
@@ -112,7 +112,7 @@ export async function getStudent(user) {
         "?token=" + encodeURIComponent(user.token) +
         "&timestamp=" + Date.now())
     .then((r) => {
-        if (DEBUG_modifyKudos) {
+        if (DEBUG_fakeKudos) {
             r.CurrentSemesterCheckinCount = DEBUG_fakeKudosProgress;
             r.RequiredKudos = DEBUG_fakeKudosRequired;
         }
